@@ -1,6 +1,7 @@
 'use strict';
 
 var electron = require('electron');
+var pkg = require('./package');
 
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
@@ -20,3 +21,5 @@ app.on('activate', createWindow);
 app.on('window-all-closed', function() {
   app.quit();
 });
+
+app.setName(pkg.name);

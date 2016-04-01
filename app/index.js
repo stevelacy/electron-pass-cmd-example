@@ -23,19 +23,19 @@ window.addEventListener('resize', function(){
   term.resize(
     Math.floor(el.clientWidth / 7.1),
     Math.floor(el.clientHeight / 13)
-  )
-})
+  );
+});
 
 var shell = pty.fork(process.env.SHELL || 'bash', [], shellOpts);
 var term = new Term(shellOpts);
-term.open(el)
+term.open(el);
 
 shell.on('data', function(data) {
   term.write(data);
 });
 shell.on('close', function() {
   window.close();
-})
+});
 term.on('data', function(data) {
   shell.write(data);
 });
