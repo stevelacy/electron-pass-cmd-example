@@ -1,0 +1,23 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, .4)
+}
+
+.term-el , .terminal{
+  height: 100%;
+  width: 100%;
+}

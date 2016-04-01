@@ -1,0 +1,15 @@
+{
+  "name": "aterm",
+  "description": "electron TTY terminal",
+  "author": "Steve Lacy me@slacy.me <http://slacy.me>",
+  "dependencies": {
+    "electron-prebuilt": "^0.37.2",
+    "pty.js": "^0.3.0",
+    "tty.js": "^0.2.15",
+    "xterm": "^0.32.0"
+  },
+  "main": "init.js",
+  "scripts": {
+    "start": "electron init.js"
+  }
+}
