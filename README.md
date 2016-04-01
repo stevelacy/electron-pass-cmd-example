@@ -6,7 +6,7 @@
 ![screenshot one of aterm](screenshots/1.png)
 fish shell
 
-![screenshot one of aterm](screenshots/1.png)
+![screenshot one of aterm](screenshots/2.png)
 another example, running neovim
 
 
