@@ -2,6 +2,7 @@
 
 var electron = require('electron');
 var pkg = require('./package');
+require('electron-debug')({ showDevTools: true });
 
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
@@ -10,10 +11,11 @@ var browserWindow;
 function createWindow () {
   if (browserWindow) return;
   browserWindow = new BrowserWindow({
-    width: 800,
-    height: 450,
+    width: 750,
+    height: 420,
     autoHideMenuBar: true
   });
+  browserWindow.setMenu(null);
   browserWindow.loadURL('file://' + __dirname + '/app/index.html');
 }
 app.on('ready', createWindow);

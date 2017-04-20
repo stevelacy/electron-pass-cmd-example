@@ -1,24 +1,22 @@
 'use strict';
 
 var fs = require('fs');
-var spawn = require('child_process').spawn;
-var remote = require('electron').remote;
-var pty = require('pty.js');
-var Term = require('term.js/src/term.js');
+var pty = require('node-pty');
+var Term = require('xterm');
 
 var el = document.getElementById('term');
+
 var shellOpts = {
-  cols: Math.floor(el.clientWidth / 7.1),
-  rows: Math.floor(el.clientHeight / 13),
+  cols: 88,
+  rows: 26,
   screenKeys: true,
   cursorBlink: false,
   focusKeys: false,
   noEvents: false,
   useStyle: true,
-  name: require('fs').existsSync('/usr/share/terminfo/x/xterm-256color')
-  ? 'xterm-256color'
-  : 'screen-256color',
+  // name: 'xterm-color',
 };
+
 window.addEventListener('resize', function(){
   term.resize(
     Math.floor(el.clientWidth / 7.1),
@@ -30,12 +28,20 @@ var shell = pty.fork(process.env.SHELL || 'bash', [], shellOpts);
 var term = new Term(shellOpts);
 term.open(el);
 
+var cmd = '';
+
 shell.on('data', function(data) {
+  if (data === ':') {
+    cmd += data;
+    return
+  }
   term.write(data);
 });
+
 shell.on('close', function() {
   window.close();
 });
+
 term.on('data', function(data) {
   shell.write(data);
 });
