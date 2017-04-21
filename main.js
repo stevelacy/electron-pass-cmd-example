@@ -16,11 +16,11 @@ function createWindow () {
     height: 420,
     autoHideMenuBar: true
   });
+
   browserWindow.loadURL('file://' + __dirname + '/app/index.html');
+
   browserWindow.commands = {
-    run: function (cmd, cb) {
-      exec(cmd, cb);
-    }
+    run: exec
   };
 }
 app.on('ready', createWindow);
