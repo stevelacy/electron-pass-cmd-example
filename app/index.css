@@ -2,7 +2,6 @@ body, html {
   padding: 0;
   margin: 0;
   height: 100%;
-  /* overflow-x: hidden; */
   font-size: 14px;
   line-height: 1.2rem;
 }
@@ -19,10 +18,12 @@ body, html {
   background: rgba(100, 100, 100, .4)
 }
 
-.term-el , .terminal {
-  height: 100%;
-  width: 100%;
-}
-.xterm-viewport {
+input {
   padding: 5px;
+  border: 1px solid #cdcdcd;
+  margin: 10px;
+  outline: none;
+}
+input:focus {
+  box-shadow: 0 0 1px rgba(0, 0, 0, .3);
 }

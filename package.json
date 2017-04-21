@@ -1,19 +1,13 @@
 {
-  "name": "aterm",
-  "description": "electron TTY terminal",
+  "name": "electron-pass-cmd-example",
+  "description": "pass cmd in electron",
   "author": "Steve Lacy me@slacy.me <http://slacy.me>",
   "dependencies": {
     "electron": "^1.6.5",
-    "electron-debug": "^1.1.0",
-    "node-pty": "^0.6.3",
-    "tty.js": "^0.2.15",
-    "xterm": "^2.5.0"
+    "electron-debug": "^1.1.0"
   },
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
-  },
-  "devDependencies": {
-    "electron-rebuild": "^1.5.7"
   }
 }

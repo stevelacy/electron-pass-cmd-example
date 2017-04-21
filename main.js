@@ -1,5 +1,6 @@
 'use strict';
 
+var exec = require('child_process').exec;
 var electron = require('electron');
 var pkg = require('./package');
 require('electron-debug')({ showDevTools: true });
@@ -15,8 +16,12 @@ function createWindow () {
     height: 420,
     autoHideMenuBar: true
   });
-  browserWindow.setMenu(null);
   browserWindow.loadURL('file://' + __dirname + '/app/index.html');
+  browserWindow.commands = {
+    run: function (cmd, cb) {
+      exec(cmd, cb);
+    }
+  };
 }
 app.on('ready', createWindow);
 app.on('activate', createWindow);
